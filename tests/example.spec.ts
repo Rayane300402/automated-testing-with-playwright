@@ -61,7 +61,7 @@ test.describe("Test Suite", () => {
     })
 })
 
-test.describe("Hooks", () => {
+test.describe.parallel.only("Hooks", () => {
     // test.beforeAll(async({page}) => {}) //before all tests start running
     test.beforeEach(async({page}) => {
         await page.goto("https://www.example.com")
@@ -89,7 +89,7 @@ test.describe("Hooks", () => {
     
 })
 
-test.only("Custom Helpers", async ({page}) => {
+test("Custom Helpers", async ({page}) => {
     await loadHomepage(page)
     // await page.pause() //pause the test
     await assertTitle(page)
