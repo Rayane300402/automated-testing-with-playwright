@@ -30,7 +30,7 @@ test.describe("Login / Logout Flow" , () => {
         await page.fill('#user_password', 'password')
         // click on submit
         await page.click('text=Sign in')
-        await page.goto('http://zero.webappsecurity.com/transfer-funds.html')
+        // await page.goto('http://zero.webappsecurity.com/transfer-funds.html')
         const accountSummaryTab = await page.locator('#account_summary_tab')
         await expect(accountSummaryTab).toBeVisible()
 
