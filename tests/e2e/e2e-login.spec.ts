@@ -1,14 +1,19 @@
 import {test, expect} from '@playwright/test';
+import { LoginPage } from '../../page-objects/LoginPage';
 
-test.describe("Login / Logout Flow" , () => {
+test.describe.only("Login / Logout Flow" , () => {
+    let loginPage: LoginPage;
+
     // before hook
-
     test.beforeEach(async ({page}) => {
-        await page.goto('http://zero.webappsecurity.com')
+        // await page.goto('http://zero.webappsecurity.com')
+        loginPage = new LoginPage(page)
+        await loginPage.visit()
     });
 
     // negative scenario
     test('Negative Scenario', async ({page}) => {
+        
         // go to login page
         await page.click('#signin_button')
         // fill the form
