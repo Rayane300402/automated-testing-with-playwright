@@ -24,4 +24,9 @@ export class LoginPage {
         await this.passwordLocator.fill(password);
         await this.submitButtonLocator.click();
     }
+
+    async assertErrorMessage(message: string) {
+        const error = await this.errorMessageLocator;
+        await expect(error).toContainText(message);
+    }
 }
