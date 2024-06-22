@@ -15,10 +15,6 @@ export class LoginPage {
         this.errorMessageLocator = page.locator(".alert-error");
     }
 
-    async visit(){
-        await this.page.goto("http://zero.webappsecurity.com/");
-    }
-
     async login(username: string, password: string) {
         await this.usernameLocator.fill(username);
         await this.passwordLocator.fill(password);

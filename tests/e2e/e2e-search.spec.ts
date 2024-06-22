@@ -1,13 +1,22 @@
 import {test, expect} from '@playwright/test';
+import { HomePage } from '../../page-objects/HomePage';
 
-test.describe("Search Functionality", () => {
+test.describe.only("Search Functionality", () => {
+
+    let homePage: HomePage;
     test.beforeEach(async ({page}) => {
-        await page.goto('http://zero.webappsecurity.com/index.html')
+        homePage = new HomePage(page)
+        await homePage.visit()
+        // await page.goto('http://zero.webappsecurity.com/index.html')
     });
 
     test('Search for a term', async ({page}) => {
-        await page.fill('#searchTerm', 'bank')
-        await page.keyboard.press('Enter')
+        // await page.fill('#searchTerm', 'bank')
+        // await page.keyboard.press('Enter')
+
+        await homePage.searchFor('bank')
+        
+
         const numberOfLinks = await page.locator('li > a')
         await expect(numberOfLinks).toHaveCount(2)
     })

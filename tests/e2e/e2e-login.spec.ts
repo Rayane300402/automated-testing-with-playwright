@@ -1,20 +1,24 @@
 import {test, expect} from '@playwright/test';
 import { LoginPage } from '../../page-objects/LoginPage';
+import { HomePage } from '../../page-objects/HomePage';
 
-test.describe.only("Login / Logout Flow" , () => {
+test.describe("Login / Logout Flow" , () => {
     let loginPage: LoginPage;
-
+    let homePage: HomePage;
     // before hook
     test.beforeEach(async ({page}) => {
         // await page.goto('http://zero.webappsecurity.com')
         loginPage = new LoginPage(page)
-        await loginPage.visit()
+        homePage = new HomePage(page)
+        await homePage.visit()
     });
 
     // negative scenario
     test('Negative Scenario', async ({page}) => {
         // go to login page
-        await page.click('#signin_button')
+        // await page.click('#signin_button')
+        await homePage.clickOnSignInButton()
+
         // fill the form
         // await page.fill('#user_login', 'invalid')
         // await page.fill('#user_password', 'invalid')
@@ -34,11 +38,16 @@ test.describe.only("Login / Logout Flow" , () => {
     // test('Positive Scenario', async ({page}) => {
     //     // go to login page
     //     await page.click('#signin_button')
+    //     await homePage.clickOnSignInButton()
+
     //     // fill the form
     //     await page.fill('#user_login', 'username')
     //     await page.fill('#user_password', 'password')
     //     // click on submit
     //     await page.click('text=Sign in')
+    //     await loginPage.login('username', 'username')
+
+    
     //     // await page.goto('http://zero.webappsecurity.com/transfer-funds.html')
     //     const accountSummaryTab = await page.locator('#account_summary_tab')
     //     await expect(accountSummaryTab).toBeVisible()
