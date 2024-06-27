@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "playwright": "npx playwright test --config=playwright.config.ts --project=Firefox",
-    "e2e": "npx playwright test --config=e2e.config.ts --project=Firefox"
+    "e2e": "npx playwright test --config=e2e.config.ts --project=Firefox",
+    "visual": "npx playwright test --config=visual.config.ts --project=Firefox"
   },
   "author": "ray",
   "license": "ISC",
