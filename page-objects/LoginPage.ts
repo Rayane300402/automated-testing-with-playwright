@@ -1,14 +1,15 @@
 import { expect, Locator, Page } from "@playwright/test";
-
-export class LoginPage {
-    readonly page: Page;
+import { AbstractPage } from "./AbstractPage";
+export class LoginPage extends AbstractPage {
+    // readonly page: Page;
     readonly usernameLocator: Locator;
     readonly passwordLocator: Locator;
     readonly submitButtonLocator: Locator;
     readonly errorMessageLocator: Locator;
 
     constructor(page: Page) {
-        this.page = page;
+        // this.page = page;
+        super(page);
         this.usernameLocator = page.locator("#user_login");
         this.passwordLocator = page.locator("#user_password");
         this.submitButtonLocator = page.locator("text=Sign in");

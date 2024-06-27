@@ -1,8 +1,8 @@
-import {test, expect} from '@playwright/test';
+import {test} from '@playwright/test';
 import { LoginPage } from '../../page-objects/LoginPage';
 import { HomePage } from '../../page-objects/HomePage';
 
-test.describe("Login / Logout Flow" , () => {
+test.describe.only("Login / Logout Flow" , () => {
     let loginPage: LoginPage;
     let homePage: HomePage;
     // before hook
@@ -26,7 +26,7 @@ test.describe("Login / Logout Flow" , () => {
         // await page.click('text=Sign in')
 
         await loginPage.login('invalid', 'invalid')
-
+        await loginPage.waitForTimeout(2000)
         // verify error message
         // const error = await page.locator('.alert-error')
         // await expect(error).toContainText('Login and/or password are wrong.')
