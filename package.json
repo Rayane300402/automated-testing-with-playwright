@@ -8,7 +8,8 @@
     "playwright": "npx playwright test --config=playwright.config.ts --project=Firefox",
     "e2e": "npx playwright test --config=e2e.config.ts --project=Firefox",
     "visual": "npx playwright test --config=visual.config.ts --project=Firefox",
-    "visual:snapshot": "npx playwright test --config=visual.config.ts --project=Firefox --update-snapshots"
+    "visual:snapshot": "npx playwright test --config=visual.config.ts --project=Firefox --update-snapshots",
+    "api": "npx playwright test --config=api.config.ts --project=Firefox"
   },
   "author": "ray",
   "license": "ISC",
