@@ -3,6 +3,7 @@ import { PlaywrightTestConfig } from "@playwright/test";
 const config: PlaywrightTestConfig = {
     timeout: 60000, //it's basically for the timeout of the test which is 60 seconds in this case because it's in milliseconds , the purpose of it is to make sure that the test doesn't run forever
     retries: 0, //this is for the retries of the test, if the test fails, it will retry it n times, could be useful if the test fails because of the network or the server
+    testDir: "tests/tips",
     use: { // for browser specific options
         headless: false, //this is for the headless mode of the browser, if it's true, the browser will run in the background, if it's false, the browser will run in the foreground
         viewport: { width: 1920, height: 1080 }, //this is for the size of the browser window, it's in pixels
